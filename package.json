@@ -28,7 +28,7 @@
     "typing-test",
     "terminal"
   ],
-  "license": "MIT",
+  "license": "GPL-3.0-only",
   "dependencies": {
     "chalk": "^5.4.1",
     "cli-cursor": "^5.0.0",

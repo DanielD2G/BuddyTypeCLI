@@ -3,7 +3,7 @@
 A [MonkeyType](https://monkeytype.com) clone that runs entirely in your terminal.
 
 <p align="center">
-  <strong>WPM tracking &middot; Accuracy &middot; Consistency &middot; 50+ themes &middot; 11 languages</strong>
+  <img src="assets/screenshot.png" alt="BuddyType menu screen" width="700">
 </p>
 
 ## Quick start
@@ -18,7 +18,7 @@ Requires **Node.js 20+**.
 ### From source
 
 ```bash
-git clone https://github.com/BuddiesLabs/BuddyTypeCLI.git
+git clone https://github.com/DanielD2G/BuddyTypeCLI.git
 cd BuddyTypeCLI
 npm install
 npm run build
@@ -81,25 +81,14 @@ src/
 │   ├── input-processor.ts  Keystroke handling & character tracking
 │   └── stats-calculator.ts WPM, accuracy, consistency calculations
 ├── hooks/          React hooks bridging engine → component state
-│   ├── use-typing-test.ts  Main test orchestrator (useReducer)
-│   ├── use-timer.ts        Timer interval management
-│   └── use-terminal-size.ts Terminal resize tracking
 ├── components/     Reusable UI pieces
-│   ├── word-display.tsx    Color-coded word rendering with cursor
-│   ├── stats-bar.tsx       Live WPM / accuracy / timer bar
-│   ├── results-chart.tsx   ASCII WPM progression chart
-│   └── ...
-├── screens/        Full-screen views
-│   ├── menu-screen.tsx     Settings & configuration
-│   ├── test-screen.tsx     The typing test
-│   ├── results-screen.tsx  Post-test stats & chart
-│   └── scores-screen.tsx   Score history browser
+├── screens/        Full-screen views (menu, test, results, scores)
 ├── data/           Word lists (MonkeyType-compatible JSON) & themes
 ├── config/         Local persistence (settings + scores)
 └── types/          Shared TypeScript interfaces
 ```
 
-The engine layer is **completely decoupled from the UI** — every function is pure, stateless, and tested with plain vitest. This makes it possible to reuse the core logic in a web or desktop frontend.
+The engine layer is **completely decoupled from the UI** — every function is pure, stateless, and tested with plain vitest.
 
 ## Development
 
@@ -125,6 +114,10 @@ npm run format       # Format with Prettier
 | Tests | Vitest |
 | Persistence | conf (OS-native config path) |
 
+## Acknowledgments
+
+Word lists and theme definitions are sourced from [MonkeyType](https://github.com/monkeytypegame/monkeytype), licensed under GPL-3.0.
+
 ## License
 
-MIT
+This project is licensed under the [GNU General Public License v3.0](LICENSE) — the same license as MonkeyType, whose word lists and themes are included in this project.
