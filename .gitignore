@@ -1,0 +1,7 @@
+/target
+.DS_Store
+
+# Internal
+CLAUDE.md
+.claude/
+scripts/
