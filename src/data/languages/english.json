@@ -1,0 +1,27 @@
+{
+  "name": "english",
+  "bcp47": "en",
+  "orderedByFrequency": true,
+  "words": [
+    "the", "be", "to", "of", "and", "a", "in", "that", "have", "i",
+    "it", "for", "not", "on", "with", "he", "as", "you", "do", "at",
+    "this", "but", "his", "by", "from", "they", "we", "say", "her", "she",
+    "or", "an", "will", "my", "one", "all", "would", "there", "their", "what",
+    "so", "up", "out", "if", "about", "who", "get", "which", "go", "me",
+    "when", "make", "can", "like", "time", "no", "just", "him", "know", "take",
+    "people", "into", "year", "your", "good", "some", "could", "them", "see", "other",
+    "than", "then", "now", "look", "only", "come", "its", "over", "think", "also",
+    "back", "after", "use", "two", "how", "our", "work", "first", "well", "way",
+    "even", "new", "want", "because", "any", "these", "give", "day", "most", "us",
+    "great", "find", "here", "thing", "many", "right", "still", "life", "long", "world",
+    "own", "much", "tell", "old", "very", "should", "home", "big", "hand", "high",
+    "keep", "place", "where", "part", "small", "number", "again", "turn", "real", "leave",
+    "might", "need", "every", "last", "let", "thought", "help", "call", "before", "move",
+    "off", "line", "too", "few", "start", "never", "show", "run", "through", "end",
+    "children", "night", "point", "between", "city", "head", "under", "while", "name", "play",
+    "same", "school", "each", "begin", "house", "open", "both", "side", "country", "ask",
+    "why", "close", "follow", "hard", "door", "change", "light", "large", "next", "mean",
+    "next", "land", "water", "read", "story", "try", "face", "group", "study", "more",
+    "state", "set", "down", "live", "write", "bring", "learn", "grow", "stand", "early"
+  ]
+}

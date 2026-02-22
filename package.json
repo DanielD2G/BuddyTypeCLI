@@ -1,0 +1,50 @@
+{
+  "name": "buddytype",
+  "version": "0.1.0",
+  "description": "A MonkeyType clone for the terminal — fast, interactive typing tests in your CLI",
+  "type": "module",
+  "bin": {
+    "buddytype": "dist/cli.js"
+  },
+  "scripts": {
+    "dev": "tsx src/cli.tsx",
+    "build": "tsup",
+    "start": "node dist/cli.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "tsc --noEmit",
+    "format": "prettier --write .",
+    "sync-languages": "bash scripts/sync-languages.sh"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "keywords": [
+    "typing",
+    "monkeytype",
+    "cli",
+    "tui",
+    "wpm",
+    "typing-test",
+    "terminal"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "cli-cursor": "^5.0.0",
+    "conf": "^13.1.0",
+    "ink": "^6.0.0",
+    "react": "^19.0.0",
+    "terminal-size": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.3.0",
+    "@types/react": "^19.0.0",
+    "ink-testing-library": "^4.0.0",
+    "prettier": "^3.5.0",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^2.1.0"
+  }
+}
