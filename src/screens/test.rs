@@ -40,7 +40,6 @@ pub fn render(frame: &mut Frame, area: Rect, app: &App, theme: &ThemeColors) {
                 words: &input_state.words,
                 current_word_index: input_state.current_word_index,
                 cursor_position: input_state.cursor_position,
-                terminal_width: app.terminal_width,
                 theme,
                 one_line: app.config.one_line,
             },

@@ -1,5 +1,4 @@
 use crate::types::{CharResult, InputState, WordState};
-use std::time::Instant;
 
 pub fn create_input_state(words: &[String]) -> InputState {
     InputState {
@@ -35,11 +34,8 @@ pub fn process_char(mut state: InputState, ch: char) -> InputState {
     let correct = !is_extra && ch == expected;
 
     let result = CharResult {
-        char: ch,
-        expected,
         correct,
         extra: is_extra,
-        timestamp: Instant::now(),
     };
 
     current.typed.push(ch);

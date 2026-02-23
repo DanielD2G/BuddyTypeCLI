@@ -6,7 +6,32 @@ A [MonkeyType](https://monkeytype.com) clone that runs entirely in your terminal
   <img src="assets/screenshot.png" alt="BuddyType menu screen" width="700">
 </p>
 
-## Quick start
+## Install
+
+### From GitHub Releases (no Rust required)
+
+Download a prebuilt binary from the [Releases](https://github.com/DanielD2G/BuddyTypeCLI/releases) page:
+
+```bash
+# macOS (Apple Silicon)
+curl -LO https://github.com/DanielD2G/BuddyTypeCLI/releases/latest/download/buddytype-aarch64-apple-darwin.tar.gz
+tar xzf buddytype-aarch64-apple-darwin.tar.gz
+./buddytype
+
+# macOS (Intel)
+curl -LO https://github.com/DanielD2G/BuddyTypeCLI/releases/latest/download/buddytype-x86_64-apple-darwin.tar.gz
+tar xzf buddytype-x86_64-apple-darwin.tar.gz
+./buddytype
+
+# Linux (x86_64)
+curl -LO https://github.com/DanielD2G/BuddyTypeCLI/releases/latest/download/buddytype-x86_64-unknown-linux-gnu.tar.gz
+tar xzf buddytype-x86_64-unknown-linux-gnu.tar.gz
+./buddytype
+```
+
+### Build from source
+
+Requires **Rust 1.80+** (uses `LazyLock` from std).
 
 ```bash
 git clone https://github.com/DanielD2G/BuddyTypeCLI.git
@@ -14,8 +39,6 @@ cd BuddyTypeCLI
 cargo build --release
 ./target/release/buddytype
 ```
-
-Requires **Rust 1.80+** (uses `LazyLock` from std).
 
 ## Features
 

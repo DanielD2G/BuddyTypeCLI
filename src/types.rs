@@ -5,11 +5,8 @@ use std::time::Instant;
 
 #[derive(Debug, Clone)]
 pub struct CharResult {
-    pub char: char,
-    pub expected: char,
     pub correct: bool,
     pub extra: bool,
-    pub timestamp: Instant,
 }
 
 #[derive(Debug, Clone)]
@@ -29,6 +26,7 @@ pub struct StatsSnapshot {
     pub incorrect_chars: usize,
     pub extra_chars: usize,
     pub missed_chars: usize,
+    #[allow(dead_code)] // used by tests
     pub elapsed_seconds: f64,
 }
 
@@ -109,6 +107,7 @@ pub struct ScoreEntry {
 
 #[derive(Debug, Clone, Deserialize)]
 #[serde(rename_all = "camelCase")]
+#[allow(dead_code)] // fields deserialized from JSON, used by tests
 pub struct Language {
     pub name: String,
     #[serde(default)]
@@ -116,13 +115,13 @@ pub struct Language {
     #[serde(default)]
     pub no_lazy_mode: Option<bool>,
     pub words: Vec<String>,
-    // Ignore extra fields like "bcp47"
 }
 
 // ── Theme ───────────────────────────────────────────────────────────
 
 #[derive(Debug, Clone, Deserialize)]
 #[serde(rename_all = "camelCase")]
+#[allow(dead_code)] // name deserialized from JSON
 pub struct ThemeColors {
     pub name: String,
     pub bg: String,

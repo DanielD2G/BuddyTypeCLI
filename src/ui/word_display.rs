@@ -9,7 +9,6 @@ pub struct WordDisplay<'a> {
     pub words: &'a [WordState],
     pub current_word_index: usize,
     pub cursor_position: usize,
-    pub terminal_width: u16,
     pub theme: &'a ThemeColors,
     pub one_line: bool,
 }
