@@ -8,26 +8,11 @@ A [MonkeyType](https://monkeytype.com) clone that runs entirely in your terminal
 
 ## Install
 
-### From GitHub Releases (no Rust required)
-
-Download a prebuilt binary from the [Releases](https://github.com/DanielD2G/BuddyTypeCLI/releases) page:
-
 ```bash
-# macOS (Apple Silicon)
-curl -LO https://github.com/DanielD2G/BuddyTypeCLI/releases/latest/download/buddytype-aarch64-apple-darwin.tar.gz
-tar xzf buddytype-aarch64-apple-darwin.tar.gz
-./buddytype
-
-# macOS (Intel)
-curl -LO https://github.com/DanielD2G/BuddyTypeCLI/releases/latest/download/buddytype-x86_64-apple-darwin.tar.gz
-tar xzf buddytype-x86_64-apple-darwin.tar.gz
-./buddytype
-
-# Linux (x86_64)
-curl -LO https://github.com/DanielD2G/BuddyTypeCLI/releases/latest/download/buddytype-x86_64-unknown-linux-gnu.tar.gz
-tar xzf buddytype-x86_64-unknown-linux-gnu.tar.gz
-./buddytype
+curl -fsSL https://raw.githubusercontent.com/DanielD2G/BuddyTypeCLI/main/install.sh | bash
 ```
+
+Detects your OS and architecture automatically. Installs to `/usr/local/bin`.
 
 ### Build from source
 
