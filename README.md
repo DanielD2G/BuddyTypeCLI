@@ -9,33 +9,25 @@ A [MonkeyType](https://monkeytype.com) clone that runs entirely in your terminal
 ## Quick start
 
 ```bash
-npm install -g buddytype
-buddytype
-```
-
-Requires **Node.js 20+**.
-
-### From source
-
-```bash
 git clone https://github.com/DanielD2G/BuddyTypeCLI.git
 cd BuddyTypeCLI
-npm install
-npm run build
-npm link
-buddytype
+cargo build --release
+./target/release/buddytype
 ```
+
+Requires **Rust 1.80+** (uses `LazyLock` from std).
 
 ## Features
 
 - **Two modes** - Time-based (15 / 30 / 60 / 120 seconds) or word count (10 / 25 / 50 / 100 words)
 - **11 languages** - English, Spanish, French, German, Italian, Portuguese, and code syntax for JavaScript, TypeScript, Python, Rust, Go
-- **50+ themes** - Built-in dark & light plus the full MonkeyType community theme collection
+- **190+ themes** - Built-in dark & light plus the full MonkeyType community theme collection
 - **Live metrics** - WPM, raw WPM, accuracy, and timer update on every keystroke
 - **Consistency score** - Uses MonkeyType's kogasa function to measure typing steadiness
 - **Score history** - Persists your last 100 results locally for review
 - **Punctuation & numbers** - Toggle extra difficulty on any language
 - **Full backspace support** - Delete characters, clear words with Ctrl+Backspace, or go back to previous words
+- **Multi-line & tape mode** - Choose between 3-line word display or MonkeyType-style tape scrolling
 
 ## Controls
 
@@ -49,6 +41,7 @@ buddytype
 | `Ctrl+Backspace` | Clear entire current word |
 | `Tab` | Restart the test |
 | `Esc` | Return to menu |
+| `Ctrl+C` | Quit |
 
 ### Menu
 
@@ -56,8 +49,8 @@ buddytype
 | --- | --- |
 | `Up` / `k` | Move up |
 | `Down` / `j` | Move down |
-| `Left` / `Right` | Cycle option values |
-| `Enter` | Start test with current settings |
+| `Left` / `Right` / `Space` | Cycle option values |
+| `Enter` | Start test (or open picker for language/theme) |
 | `s` | View score history |
 
 ## How WPM is calculated
@@ -75,44 +68,45 @@ All formulas match [MonkeyType](https://monkeytype.com):
 
 ```
 src/
-├── engine/         Pure TypeScript — zero React/Ink imports
-│   ├── timer.ts            Timer state machine
-│   ├── word-generator.ts   Power-law word sampling + punctuation/numbers
-│   ├── input-processor.ts  Keystroke handling & character tracking
-│   └── stats-calculator.ts WPM, accuracy, consistency calculations
-├── hooks/          React hooks bridging engine → component state
-├── components/     Reusable UI pieces
+├── engine/         Pure Rust — zero UI dependencies
+│   ├── timer.rs            Timer state machine
+│   ├── word_generator.rs   Power-law word sampling + punctuation/numbers
+│   ├── input_processor.rs  Keystroke handling & character tracking
+│   └── stats_calculator.rs WPM, accuracy, consistency calculations
+├── ui/             Reusable TUI widgets (ratatui)
 ├── screens/        Full-screen views (menu, test, results, scores)
-├── data/           Word lists (MonkeyType-compatible JSON) & themes
+├── data/           Language & theme loaders (compile-time embedded)
 ├── config/         Local persistence (settings + scores)
-└── types/          Shared TypeScript interfaces
+├── types.rs        All shared structs/enums
+├── app.rs          App state machine
+└── main.rs         Entry point (terminal setup, event loop)
+
+data/
+├── languages/      Word lists (MonkeyType-compatible JSON)
+└── themes/         Theme definitions (JSON)
 ```
 
-The engine layer is **completely decoupled from the UI** — every function is pure, stateless, and tested with plain vitest.
+The engine layer is **completely decoupled from the UI** — every function is pure, takes ownership and returns modified state, and tested with `cargo test`.
 
 ## Development
 
 ```bash
-npm run dev          # Run with tsx (hot reload)
-npm run build        # Production build with tsup
-npm start            # Run the production build
-npm test             # Run tests once
-npm run test:watch   # Tests in watch mode
-npm run lint         # Type-check with tsc --noEmit
-npm run format       # Format with Prettier
+cargo run              # Run in debug mode
+cargo build --release  # Optimized build
+cargo test             # Run all tests (98 tests)
+cargo clippy           # Lint
 ```
 
 ## Tech stack
 
 | Layer | Technology |
 | --- | --- |
-| Runtime | Node.js 20+ |
-| Language | TypeScript 5 (strict mode) |
-| Terminal UI | Ink 6 (React 19 for CLIs) |
-| Styling | Chalk 5 |
-| Build | tsup (ESM, sourcemaps) |
-| Tests | Vitest |
-| Persistence | conf (OS-native config path) |
+| Language | Rust (edition 2024) |
+| Terminal UI | ratatui + crossterm |
+| Data | serde + serde_json (compile-time embedded) |
+| Config | directories crate (OS-native config path) |
+| RNG | rand (power-law word selection) |
+| Tests | cargo test (built-in) |
 
 ## Acknowledgments
 
